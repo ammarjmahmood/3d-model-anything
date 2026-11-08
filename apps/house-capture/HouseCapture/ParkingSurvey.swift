@@ -61,11 +61,13 @@ final class ParkingSurveyRecorder: NSObject, ObservableObject, ARSessionDelegate
     Task { @MainActor in
       let allowed = await AVCaptureDevice.requestAccess(for: .video)
       guard allowed else { error = "Allow camera access in Settings."; busy = false; return }
+      guard UIApplication.shared.applicationState == .active else { busy = false; return }
       self.site = site; self.kind = kind; self.level = level
       UIApplication.shared.isIdleTimerDisabled = true
       location.requestWhenInUseAuthorization()
       location.startUpdatingLocation()
       queue.async {
+        self.finishing = false
         do {
           let url = Self.root.appendingPathComponent(UUID().uuidString, isDirectory: true)
           try FileManager.default.createDirectory(at: url.appendingPathComponent("rgb"), withIntermediateDirectories: true)
@@ -78,7 +80,6 @@ final class ParkingSurveyRecorder: NSObject, ObservableObject, ARSessionDelegate
           self.frames = try self.openLog(url.appendingPathComponent("frames.jsonl"))
           self.locations = try self.openLog(url.appendingPathComponent("locations.jsonl"))
           try self.manifest(state: "recording")
-          self.finishing = false
           self.active = true
           let config = ARWorldTrackingConfiguration()
           config.worldAlignment = .gravity
