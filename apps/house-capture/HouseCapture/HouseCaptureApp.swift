@@ -17,10 +17,10 @@ struct HouseCaptureApp: App {
       } else if args.contains("-autotest") || args.contains("-autotest-continue") {
         AutoTestView(continueLatest: args.contains("-autotest-continue"))
       } else {
-        HomeView()
+        ParkingSurveyScreen()
       }
       #else
-      HomeView()
+      ParkingSurveyScreen()
       #endif
     }
   }

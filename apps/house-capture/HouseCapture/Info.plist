@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>3D Model Anything</string>
+	<string>Parking Survey</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -29,7 +29,9 @@
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>3D Model Anything uses the camera and LiDAR scanner to measure your rooms and take reference photos.</string>
+	<string>Parking Survey records camera and LiDAR evidence for parking lots, garages, and rooms.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Parking Survey saves GPS positions and accuracy for later map alignment.</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UILaunchScreen</key>

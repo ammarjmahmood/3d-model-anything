@@ -19,3 +19,21 @@ jobs:
           python-version: '3.12'
       - run: pip install Pillow
       - run: python3 .agents/skills/scan-to-threejs/scripts/test_house_import.py
+
+  parking-survey:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m unittest discover -s tools/parking-survey -v
+  ios:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install xcodegen
+      - run: xcodegen generate
+        working-directory: apps/house-capture
+      - run: >-
+          xcodebuild -project HouseCapture.xcodeproj -scheme HouseCapture
+          -configuration Debug -destination 'generic/platform=iOS Simulator'
+          CODE_SIGNING_ALLOWED=NO build
+        working-directory: apps/house-capture

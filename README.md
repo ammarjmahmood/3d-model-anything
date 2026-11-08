@@ -1,3 +1,9 @@
+# Parking Survey — 3D Model Anything fork
+
+This fork opens into an outdoor parking-lot / garage survey recorder that bypasses RoomPlan, recording video, sampled RGB + LiDAR depth, poses, calibration and GPS for later mapping and Atlas preparation. See [installation, export format, Atlas workflow and limitations](tools/parking-survey/README.md). Indoor room capture remains available.
+
+The original project documentation follows.
+
 # 3D Model Anything
 
 [![Watch the video: 3D Model Anything](docs/images/thumb-1.png)](https://www.youtube.com/watch?v=JGQCcCzuS88)

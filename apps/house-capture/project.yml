@@ -24,8 +24,9 @@ targets:
     info:
       path: HouseCapture/Info.plist
       properties:
-        CFBundleDisplayName: 3D Model Anything
-        NSCameraUsageDescription: 3D Model Anything uses the camera and LiDAR scanner to measure your rooms and take reference photos.
+        CFBundleDisplayName: Parking Survey
+        NSCameraUsageDescription: Parking Survey records camera and LiDAR evidence for parking lots, garages, and rooms.
+        NSLocationWhenInUseUsageDescription: Parking Survey saves GPS positions and accuracy for later map alignment.
         # Non-LiDAR devices can import and review scans; capture is checked at runtime.
         ITSAppUsesNonExemptEncryption: false
         HouseCapturePrivacyURL: "https://wesbos.github.io/3d-model-anything/privacy.html"
